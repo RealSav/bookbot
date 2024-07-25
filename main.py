@@ -11,30 +11,34 @@
 # It takes the entirety of the path passed to it, in this case, "books/frankenstein.txt" and assigns it to f. Then using a new variable I assign as the entire text where it reads it once
 # Then ends the operation by using .read() on the text of the book.
 def main():
-    with open("books/frankenstein.txt") as f:
-        file_contents = f.read()
+    # I would like to create a way for this to be changed by the user after having a list of available books presented to them later on
+    file_path = "books/frankenstein.txt"
+    # Utilizing the function I created for reading the content repeatedly, I'm feeding it whatever is inside the variable file_path so it can find the book to run so it can read it then return back to text
+    text = read_content(file_path)
         
         
 # To achieve the count of words, I retyped code (yes going to fix in future when I get better understanding), in which is reads the entire text of the book as a string.
 # Then it splits the long string into a new list using the split.() and having it split on white space (spaces) Then printing the resulting list's length by putting it into len()
-def word_count():
-    with open("books/frankenstein.txt") as f:
-        file_contents = f.read()
-        words = file_contents.split()
-        print(len(words))
+# Along with creating read_content() I forgot to remove old code which was just repeating the function, so I'm trying to now clean it up by removing and using the function
+def word_count(text):
+    words = text.split()
+    return len(words)
+    
+    # with open("books/frankenstein.txt") as f:
+    #     file_contents = f.read()
+    #     words = file_contents.split()
+    #     print(len(words))
 
 # Here I'm retyping code again(I know I need to fix this). I'm taking the entirety of the text from the given book, reading it and converting it all to lowercase
 # From there, I declared a new variable named count and set it to 0 since I'm just adding. Then did a small for loop with an if statement to check if what I pass in for the 
 # function parameter matches what is being checked at the time for the loop. If it is, then add 1 to the count variable and once the loop is completed, to print the final result of count to console
-def letter_count(letter):
-    with open("books/frankenstein.txt") as f:
-        file_contents = f.read()
-        txt_lowered = file_contents.lower()
+def letter_count(text, letter):
+        text_lowered = text.lower()
         count = 0
-        for i in txt_lowered:
+        for i in text_lowered:
             if i == letter:
                 count += 1
-        print(count)
+        return count
 
 # Here I'm trying to create a way to reduce the amount of code I have repeating itself currently                
 def read_content(file_path):
