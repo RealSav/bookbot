@@ -5,6 +5,7 @@
 # Add a print() then run code to make sure it does as expected, expecting 77986
 # Add a new function that takes the text from a book and counts the amount of letters inside after converting to all lower case
 # I seem to be repeating the same code and should probably convert it into a function. However, I'm not sure how I would do so at this point in time so I'm going to keep going as I have so far
+# Created read_content() to do just as the function name says
 
 # This is my first time using the with function and I'm still trying to comprehend and understand it fully but to my current understanding it's similar to a for loop or while function
 # It takes the entirety of the path passed to it, in this case, "books/frankenstein.txt" and assigns it to f. Then using a new variable I assign as the entire text where it reads it once
@@ -34,10 +35,11 @@ def letter_count(letter):
             if i == letter:
                 count += 1
         print(count)
-                
-# def read_content():
-#     with open("books/frankenstein.txt") as f:
-#         file_contents = f.read()
+
+# Here I'm trying to create a way to reduce the amount of code I have repeating itself currently                
+def read_content(file_path):
+    with open(file_path) as f:
+        return f.read()
         
 if __name__ == "__main__":
     main()
