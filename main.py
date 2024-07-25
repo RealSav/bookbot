@@ -15,6 +15,17 @@ def main():
     file_path = "books/frankenstein.txt"
     # Utilizing the function I created for reading the content repeatedly, I'm feeding it whatever is inside the variable file_path so it can find the book to run so it can read it then return back to text
     text = read_content(file_path)
+    alphabet_lower = "abcdefghijklmnopqrstuvwxyz"
+    
+    # Need to call the word_count()
+    total_words = word_count(text)
+    # Let the user know how many words are inside of the book (which hopefully will have more books to choose from later)
+    print(f"There are a total of {total_words} found inside of this book!")
+    
+    # Need to call letter count and let user decide which letters to pick as well as letting them know the amount of times that letter was used.
+    for letter in alphabet_lower:
+        num_occurences = letter_count(text, letter)
+        print(f"The letter: {letter} was found: {num_occurences} times within the book!")
         
         
 # To achieve the count of words, I retyped code (yes going to fix in future when I get better understanding), in which is reads the entire text of the book as a string.
@@ -47,7 +58,17 @@ def read_content(file_path):
         
 if __name__ == "__main__":
     main()
-    word_count()
-    # Would like to create a way to take an input from the user and set that as what we're asking to be ran in the letter_count() function
-    # So it would ideally look more like letter_count(user_letter_choice). Might need to create a failsafe in case the user tries over 1 character.
-    letter_count("i")
+    # word_count()
+    # # Would like to create a way to take an input from the user and set that as what we're asking to be ran in the letter_count() function
+    # # So it would ideally look more like letter_count(user_letter_choice). Might need to create a failsafe in case the user tries over 1 character.
+    # letter_count("i")
+    
+    # Once again, I would like to be able to have the books as a list the user sees and can choose from then I can say {book_name} instead of just book
+    # I am getting the letter(s) from the user to put into the letter count function
+    user_letter = input("Please choose a letter(s) to see how many times they appear within the book!").islower()
+    if len(user_letter) == 1 and user_letter.isalpha:
+        count = letter_count(read_content("books/frankenstein.txt"), user_letter)
+        # I feel like I'm repeating myself here and I'll see two prints?
+        print(f"The letter you've chosen: {user_letter} was found inside of the book {count} times!")
+    else:
+        print("Please, use only a single letter at a time!")
