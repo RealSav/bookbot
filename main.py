@@ -12,7 +12,7 @@
 def main():
     with open("books/frankenstein.txt") as f:
         file_contents = f.read()
-        print(file_contents)
+        
         
 # To achieve the count of words, I retyped code (yes going to fix in future when I get better understanding), in which is reads the entire text of the book as a string.
 # Then it splits the long string into a new list using the split.() and having it split on white space (spaces) Then printing the resulting list's length by putting it into len()
