@@ -27,6 +27,16 @@ def main():
         num_occurences = letter_count(text, letter)
         print(f"The letter: {letter} was found: {num_occurences} times within the book!")
         
+    # Once again, I would like to be able to have the books as a list the user sees and can choose from then I can say {book_name} instead of just book
+    # I am getting the letter(s) from the user to put into the letter count function
+    user_letter = input("Please choose a letter(s) to see how many times they appear within the book!").islower()
+    if len(user_letter) == 1 and user_letter.isalpha():
+        count = letter_count(read_content("books/frankenstein.txt"), user_letter)
+        # I feel like I'm repeating myself here and I'll see two prints?
+        print(f"The letter you've chosen: {user_letter} was found inside of the book {count} times!")
+    else:
+        print("Please, use only a single letter at a time!")
+        
         
 # To achieve the count of words, I retyped code (yes going to fix in future when I get better understanding), in which is reads the entire text of the book as a string.
 # Then it splits the long string into a new list using the split.() and having it split on white space (spaces) Then printing the resulting list's length by putting it into len()
@@ -63,12 +73,3 @@ if __name__ == "__main__":
     # # So it would ideally look more like letter_count(user_letter_choice). Might need to create a failsafe in case the user tries over 1 character.
     # letter_count("i")
     
-    # Once again, I would like to be able to have the books as a list the user sees and can choose from then I can say {book_name} instead of just book
-    # I am getting the letter(s) from the user to put into the letter count function
-    user_letter = input("Please choose a letter(s) to see how many times they appear within the book!").islower()
-    if len(user_letter) == 1 and user_letter.isalpha:
-        count = letter_count(read_content("books/frankenstein.txt"), user_letter)
-        # I feel like I'm repeating myself here and I'll see two prints?
-        print(f"The letter you've chosen: {user_letter} was found inside of the book {count} times!")
-    else:
-        print("Please, use only a single letter at a time!")
