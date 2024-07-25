@@ -29,13 +29,13 @@ def main():
         
     # Once again, I would like to be able to have the books as a list the user sees and can choose from then I can say {book_name} instead of just book
     # I am getting the letter(s) from the user to put into the letter count function
-    user_letter = input("Please choose a letter(s) to see how many times they appear within the book!").islower()
-    if len(user_letter) == 1 and user_letter.isalpha():
-        count = letter_count(read_content("books/frankenstein.txt"), user_letter)
+    user_letter = input("Please choose a letter(s) to see how many times they appear within the book! ")
+    if len(user_letter) == 1 and user_letter.isalpha() and user_letter.islower():
+        count = letter_count(text, user_letter)
         # I feel like I'm repeating myself here and I'll see two prints?
         print(f"The letter you've chosen: {user_letter} was found inside of the book {count} times!")
     else:
-        print("Please, use only a single letter at a time!")
+        print("Please, use only a single lowercase letter at a time!")
         
         
 # To achieve the count of words, I retyped code (yes going to fix in future when I get better understanding), in which is reads the entire text of the book as a string.
